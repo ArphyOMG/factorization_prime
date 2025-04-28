@@ -103,6 +103,16 @@
         resultDiv.textContent = "양의 정수를 입력해주세요.";
         return;
       }
+      // 글자수 16자 제한
+
+      const numberInput = document.getElementById('numberInput');
+      const maxLength = 5;
+
+      numberInput.addEventListener('keypress', function(event) {
+        if (this.value.length >= maxLength) {
+          event.preventDefault();
+        }
+      });
 
       // 1은 소수도 합성수도 아님
       if (num === 1) {
