@@ -79,6 +79,16 @@
   </div>
 
   <script>
+   // 자리수 초과시 입력 불가가
+    const numberInput = document.getElementById('numberInput');
+  const maxLength = 10;
+
+  numberInput.addEventListener('keypress', function(event) {
+    if (this.value.length >= maxLength) {
+      event.preventDefault();
+    }
+  });
+    
     // 버튼 클릭과 엔터 키 처리
     const input = document.getElementById('numberInput');
     const button = document.getElementById('checkButton');
@@ -103,16 +113,6 @@
         resultDiv.textContent = "양의 정수를 입력해주세요.";
         return;
       }
-      // 글자수 16자 제한
-
-      const numberInput = document.getElementById('numberInput');
-      const maxLength = 5;
-
-      numberInput.addEventListener('keypress', function(event) {
-        if (this.value.length >= maxLength) {
-          event.preventDefault();
-        }
-      });
 
       // 1은 소수도 합성수도 아님
       if (num === 1) {
